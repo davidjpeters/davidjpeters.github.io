@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: grey;
+            margin: 0;
+        }
+        .header {
+        overflow: hidden;
+        background-color: black;
+        padding: 20px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Add space between logo/name and header-right */
+
+        }
+
+        /* Style the header links */
+        .header a {
+        float: left;
+        color: white;
+        text-align: center;
+        padding: 12px;
+        text-decoration: none;
+        font-size: 18px; 
+        line-height: 25px;
+        border-radius: 4px;
+        }
+
+        /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
+        .header a.logo {
+        width: 100px;
+        height: auto;
+        margin-right: 100px;
+        }
+
+        .header a.logo img {
+            width: 50px;
+            height: auto;
+        }
+
+        /* Change the background color on mouse-over */
+        .header a:hover {
+        background-color: grey;
+        color: white;
+        }
+
+        /* Style the active/current link*/
+        .header a.active {
+        background-color: dodgerblue;
+        color: white;
+        }
+
+        /* Float the link section to the right */
+        .header-right {
+        float: right;
+        }
+
+        .header .name {
+            color: white;
+            font-size: 80px; /* Adjust the font size to your preference */
+            font-weight: bold; /* Optionally, make the name bold */
+            margin-right: 20px; /* Add some margin for spacing */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="logo"><img src="pronghorns.png"></a>
+        <span class="name">David Peters</span>
+
+        <div class="header-right">
+          <a class="active" href="index.html">Home</a>
+          <a href="projects.html">Projects</a>
+          <a href="beet.html">About</a>
+        </div>
+      </div>
+    
+</body>
+</html>
