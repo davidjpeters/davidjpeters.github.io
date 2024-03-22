@@ -6,103 +6,187 @@
     <title>Document</title>
     <style>
         body {
-            background-color: grey;
-            margin: 0;
+            background-color: black;
+            color: lightgrey;
         }
-        .header {
-        overflow: hidden;
-        background-color: black;
-        padding: 20px 10px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between; /* Add space between logo/name and header-right */
-
+        .container {
+            display:flex;
+            justify-content: center;
+            position: relative;
         }
-
-        /* Style the header links */
-        .header a {
-        float: left;
-        color: white;
-        text-align: center;
-        padding: 12px;
-        text-decoration: none;
-        font-size: 18px; 
-        line-height: 25px;
-        border-radius: 4px;
+        .nameDiv {
+            width: 50vw;
+            height:auto;
+            position: absolute;
+            left: calc(-5vw);
+            text-align: right;
         }
-
-        /* Style the logo link (notice that we set the same value of line-height and font-size to prevent the header to increase when the font gets bigger */
-        .header a.logo {
-        width: 100px;
-        height: auto;
-        margin-right: 100px;
-        }
-
-        .header a.logo img {
-            width: 50px;
+        .mainBio {
+            width: 50vw;
             height: auto;
-        }
-
-        /* Change the background color on mouse-over */
-        .header a:hover {
-        background-color: grey;
-        color: white;
-        }
-
-        /* Style the active/current link*/
-        .header a.active {
-        background-color: dodgerblue;
-        color: white;
-        }
-
-        /* Float the link section to the right */
-        .header-right {
-        float: right;
-        }
-
-        .header .name {
-            color: white;
-            font-size: 80px; /* Adjust the font size to your preference */
-            font-weight: bold; /* Optionally, make the name bold */
-            margin-right: 20px; /* Add some margin for spacing */
-        }
-
-        footer {
-            background-color: black; /* Set the same color as the header */
-            color: white;
-            padding: 10px; /* Adjust padding as needed */
+            position: absolute;
+            right: calc(0vw);
             text-align: left;
+        }
+        .nameDiv h3 {
+            margin-top: 10vw;
+            font-weight: 400;
+            font-family: 'Trebuchet MS';
+            color: lightgrey;
+            position: relative;
+        }
+        .nameDiv h1 {
+            margin-top: -30px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: bold;
+            font-size: 500%;
+            position: relative;
+            background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, rgb(191, 18, 191), rgb(239, 8, 85), rgb(255, 0, 0));
+            background-clip: text;
+            -webkit-background-clip: text; /* For Safari */
+            color: transparent;
+            background-size: 200%;
+            background-position: 100%;
+            animation: rainbowAnimation 4s linear infinite;
+        }
+        .nameDiv h2 {
+            margin-top: -50px;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-weight: 400;
+            color: lightgrey;
+            position: relative;
+        }
+        .mainBio h4 {
+            margin-top: 10vw;
+            font-weight: 400;
+            font-family: 'Trebuchet MS';
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            color: lightgrey;
+            max-width: 80%;
+            text-align: left;
+        }
+        .verticalLine {
             position: fixed;
-            width: 100%;
+            top: 0;
             bottom: 0;
+            left: 50%;
+            width: 8px; /* Adjust thickness as needed */
+            background-image: linear-gradient(to right, black, lightgrey, black); /* Adjust color as needed */
+            z-index: 999; /* Ensure it stays above other elements */
+        }
+        .horLineOne {
+            position: fixed;
+            height: 8px;
+            bottom: 77%;
+            width: 50%;
+            left: 50.5%;
+            background-image: linear-gradient(to top, black, lightgrey, black);
+            z-index: 999;
+        }
+        .horLineTwo {
+            position: fixed;
+            height: 8px;
+            bottom: 70%;
+            width: 50%;
+            left: 0;
+            background-image: linear-gradient(to top, black, lightgrey, black);
+            z-index: 999;
+        }
+        .contact {
+            top:  22vw;
+            width: 50vw;
+            height:auto;
+            position: absolute;
+            left: calc(-5vw);
+            text-align: right;
+        }
+        .contact h1 {
+            font-family: Trebuchet MS;
+            margin-bottom: 8px;
+            background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, rgb(191, 18, 191), rgb(239, 8, 85), rgb(255, 0, 0));
+            background-clip: text;
+            -webkit-background-clip: text; /* For Safari */
+            color: transparent;
+            background-size: 200%;
+            background-position: 100%;
+            animation: rainbowAnimation 4s linear infinite;
+        }
+        .contact h3 {
+            font-family: Trebuchet MS;
+            margin-top: -7px;
+        
+        }
+        .contact h2 {
+            font-family: Trebuchet MS;
+            margin-top: -7px;
+            color: rgb(10, 182, 234);
+        }
+        .contact .contactLine {
+            margin-top: -8px;
+            margin-bottom: 10px;
+            height: 4px;
+            background-image: linear-gradient(to right, black, lightgray, black);
+            background-image: linear-gradient(to top, black, lightgray, black);
+            width: 30%;
+            margin-left: 35vw;
+            border: black;
+            border-radius: 3px;
+        }
+        .socials img {
+            color: lightgray;
+            height: 50px;
+            width: auto;
         }
 
-        footer img {
-            width: 30px;
-            height: auto;
-            margin-left: 5px;
-            margin-right: 5px;
+
+        @keyframes rainbowAnimation {
+            0% {background-position: 0%}
+            100% {background-position: 200%}
         }
+
+        @media (max-width: 768px) {
+        .mainBio {
+            right: auto;
+            left: calc(50% + 8px); /* Adjust the value to ensure it doesn't cross over the center line */
+            text-align: center;
+            width: 90vw;
+        }
+        }
+
     </style>
 </head>
 <body>
-
-    <div class="header">
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" class="logo"><img src="pronghorns.png"></a>
-        <span class="name">David Peters</span>
-
-        <div class="header-right">
-          <a class="active" href="index.html">Home</a>
-          <a href="projects.html">Projects</a>
-          <a href="beet.html">About</a>
+    <div class="verticalLine"></div>
+    <div class="container">
+        <div class="nameDiv">
+            <h3>Welcome, My Name Is</h3>
+            <h1>David Peters</h1>
+            <h2>Aspiring 10x Developer</h2>
         </div>
-      </div>
+        <div class="horLineOne"></div>
+        <div class="horLineTwo"></div>
 
-      <footer>
-        &copy; 2024
-        <a href="https://www.instagram.com/oh_hey_dave/"><img src="imgs/instaLogo.png"></a>
-        <a href="https://github.com/davidjpeters"><img src="/imgs/github.svg"></a>
-    </footer>
+        <div class="mainBio">
+            <h4>
+                I'm a big fan of programming, digital design and dark mode<br>
+                Currently a student at the University of Lethbridge
+            </h4>
+        </div>
+
+        <div class="contact">
+            <h1>Contact Me</h1>
+            <h3>email: davidpeters019@gmail.com</h3>
+            <h3>phone number: 403-894-7184</h3>
+            <div class="contactLine"></div>
+            <h2>Or check out my socials</h2>
+            <div class="socials">
+                <a href="https://github.com/davidjpeters"><img class="github" src="imgs/github.png"></a>
+                <a href="https://www.instagram.com/oh_hey_dave/"><img class="instaLogo" src="imgs/instaLogo.png"></a>
+            </div>
+        </div>
+    </div>
     
 </body>
 </html>
