@@ -9,25 +9,30 @@
             background-color: rgb(11, 11, 11);
             color: lightgrey;
         }
+    
         .container {
-            display:flex;
+            display: flex;
             justify-content: center;
             position: relative;
         }
+    
         .nameDiv {
             width: 50vw;
-            height:auto;
+            height: auto;
             position: absolute;
             left: calc(-5vw);
             text-align: right;
         }
+    
         .mainBio {
             width: 50vw;
             height: auto;
             position: absolute;
             right: calc(0vw);
             text-align: left;
+            margin: 0%;
         }
+    
         .nameDiv h3 {
             margin-top: 10vw;
             font-weight: 400;
@@ -35,6 +40,7 @@
             color: lightgrey;
             position: relative;
         }
+    
         .nameDiv h1 {
             margin-top: -30px;
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -49,6 +55,7 @@
             background-position: 100%;
             animation: rainbowAnimation 4s linear infinite;
         }
+    
         .nameDiv h2 {
             margin-top: -50px;
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -56,6 +63,7 @@
             color: lightgrey;
             position: relative;
         }
+    
         .mainBio h4 {
             margin-top: 10vw;
             font-weight: 400;
@@ -67,41 +75,22 @@
             max-width: 80%;
             text-align: left;
         }
-        .verticalLine {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            width: 8px; /* Adjust thickness as needed */
-            background-image: linear-gradient(to right, black, lightgrey, black); /* Adjust color as needed */
-            z-index: 999; /* Ensure it stays above other elements */
+    
+        .mainBio .darkMode:hover {
+            color: black;
+            animation: glow 1s ease-in-out infinite alternate;
         }
-        .horLineOne {
-            position: fixed;
-            height: 8px;
-            bottom: 77%;
-            width: 50%;
-            left: 50.5%;
-            background-image: linear-gradient(to top, black, lightgrey, black);
-            z-index: 999;
-        }
-        .horLineTwo {
-            position: fixed;
-            height: 8px;
-            bottom: 70%;
-            width: 50%;
-            left: 0;
-            background-image: linear-gradient(to top, black, lightgrey, black);
-            z-index: 999;
-        }
+    
         .contact {
-            top:  22vw;
+            top: 22vw;
             width: 50vw;
-            height:auto;
+            height: auto;
             position: absolute;
             left: calc(-5vw);
             text-align: right;
+            margin: 0%;
         }
+    
         .contact h1 {
             font-family: Trebuchet MS;
             margin-bottom: 8px;
@@ -111,14 +100,36 @@
             color: transparent;
             background-size: 200%;
             background-position: 100%;
-            animation: redPinkAnimation 2s linear infinite;
-            
+            animation: redPinkAnimation 2s linear infinite;   
         }
+    
         .contact h3 {
             font-family: Trebuchet MS;
-            margin-top: -7px;
-        
+            margin-top: 5px;     
         }
+    
+        .contact a {
+            font-family: Trebuchet MS;
+            margin-top: -7px;
+            color: lightgray;
+            width: 15vw;
+            text-decoration: none;
+            margin-bottom: 10px;
+        }
+    
+        .contact a:hover {
+            font-family: Trebuchet MS;
+            font-size: 20px;
+            margin-top: -7px;
+            background-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet, rgb(191, 18, 191), rgb(239, 8, 85), orange, yellow, green, blue);
+            background-clip: text;
+            -webkit-background-clip: text; /* For Safari */
+            color: transparent;
+            background-size: 300%;
+            background-position: 100%;
+            animation: redPinkAnimation 4s linear infinite;
+        }
+    
         .contact h2 {
             font-family: Trebuchet MS;
             margin-top: -7px;
@@ -130,6 +141,7 @@
             background-position: 100%;
             animation: redPinkAnimation 2s linear infinite;
         }
+    
         .contact .contactLine {
             margin-top: -8px;
             margin-bottom: 10px;
@@ -141,54 +153,86 @@
             border: black;
             border-radius: 3px;
         }
+    
         .socials img {
             color: lightgray;
             height: 50px;
             width: auto;
         }
-
-
+    
         @keyframes rainbowAnimation {
             0% {background-position: 0%}
             100% {background-position: 200%}
         }
+    
         @keyframes redPinkAnimation {
             0% {background-position: 0%;}
             100% {background-position: 100%;}
         }
-
+    
         @media (max-width: 768px) {
-        .mainBio {
-            right: auto;
-            left: calc(50% + 8px); /* Adjust the value to ensure it doesn't cross over the center line */
-            text-align: center;
-            width: 90vw;
+            .mainBio, .contact, .nameDiv {
+                width: 90%; /* Set width to occupy 90% of the viewport */
+                position: static; /* Remove absolute positioning */
+                text-align: center; /* Center align text */
+            }
+    
+            .nameDiv {
+                margin-bottom: 20px; /* Add space between sections */
+            }
+    
+            .contact {
+                margin-top: 20px; /* Add space between sections */
+            }
+    
+            .nameDiv h1, .nameDiv h2, .nameDiv h3 {
+                margin-top: 0; /* Remove excessive top margin */
+            }
+    
+            .mainBio h4 {
+                max-width: 100%; /* Ensure text doesn't overflow */
+            }
+    
+            .contact a {
+                width: auto; /* Let anchor tags occupy full width */
+            }
+    
+            .contact .contactLine {
+                width: 60%; /* Adjust width of contact line */
+                margin: 10px auto; /* Center align contact line */
+            }
         }
+    
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 10px yellow; /* Set initial text shadow */
+            }
+            100% {
+                text-shadow: 0 0 20px yellow; /* Set final text shadow */
+            }
         }
-
-    </style>
+    
+    </style
+    
 </head>
 <body>
-    <div class="verticalLine"></div>
     <div class="container">
         <div class="nameDiv">
             <h3>Welcome, My Name Is</h3>
             <h1>David Peters</h1>
             <h2>Aspiring 10x Developer</h2>
         </div>
-        <div class="horLineOne"></div>
-        <div class="horLineTwo"></div>
 
         <div class="mainBio">
             <h4>
-                I'm a big fan of programming, digital design and dark mode<br>
+                I'm a big fan of programming, digital design and <span class="darkMode">dark</span> mode<br>
                 Currently a student at the University of Lethbridge
             </h4>
         </div>
 
         <div class="contact">
             <h1>Contact Me</h1>
-            <h3>email: davidpeters019@gmail.com</h3>
+            <a href="mailto:davidpeters019@gmail.com">Reach out over email</a>
             <h3>phone number: 403-894-7184</h3>
             <div class="contactLine"></div>
             <h2>Or check out my socials</h2>
