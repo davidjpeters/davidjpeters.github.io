@@ -1,0 +1,139 @@
+@font-face {
+    font-family: SourceCode;
+    src: url(fonts/SourceCodePro-VariableFont_wght.ttf);
+}
+
+html, body {
+    background: rgb(25, 25, 25);
+    font-family: SourceCode;
+    color: ivory;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.siteHeader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: transparent; /* Background to ensure visibility */
+    
+}
+
+.siteHeader ul {
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    gap: 3rem;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgb(25, 25, 25); /* Background to ensure visibility */
+    z-index: 1000;
+}
+
+.siteHeader ul li {
+    list-style-type: none;
+    display: flex;
+}
+
+.siteHeader ul li a {
+    color: ivory;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.siteHeader ul li a:hover {
+    border-bottom: 2px solid ivory;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+
+}
+
+.aboutSection {
+    padding-top: 6rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.aboutSection h1 {
+    margin: 0;
+    color: rgb(21, 161, 21);
+    font-size: 3rem;
+    font-weight: 500;
+    padding-left: 10%;
+    width: 100%
+}
+
+.aboutMeInfo {
+    font-size: 1.2rem;
+}
+
+.cursor {
+    background-color: rgb(21, 161, 21);
+    animation: blink 1s step-start infinite;
+}
+
+.work {
+    width: calc(100% - 5rem);
+    border: 1rem solid rgb(33, 124, 38);
+    border-left: 4rem solid rgb(33, 124, 38);
+    overflow: hidden; 
+    position: relative; 
+    margin: 0 auto;
+    margin-top: 10px;
+}
+
+.opf {
+    position: relative;
+    height: 200px; 
+    transition: transform 0.5s ease;
+}
+
+.powerSystem {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+    display: block;
+    margin: 0;
+}
+
+.opf:hover .powerSystem {
+    filter: grayscale(0%);
+}
+
+.opf:hover {
+    transform: scale(1.1);
+}
+
+
+.cursor {
+    background-color: rgb(21, 161, 21);
+    animation: blink 1s step-start infinite;
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%; 
+    left: 20%; 
+    transform: translate(-50%, -50%); 
+    color: black; 
+    font-size: 10rem;
+    font-weight: bold;
+    text-align: center; 
+    z-index: 100; /* Ensure it’s above the image */
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
