@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>David Peters</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+    <header class="siteHeader">
+        <div class="opf">
+            <a href="index.html">OPF</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="basics.html">BASICS</a></li>
+                <li><a href="work.html">WORK</a></li>
+                <li><a href="why.html">WHY</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="mainGrid">
+        <div>
+            <h1>WHAT IS OPTIMAL POWER FLOW?</h1>
+        </div>
+        <div>
+            <p>
+                Optimal power flow is a long standing problem in electrical engineering.
+                <br>The goal is to find the conditions such that a power system operates
+                <br> at the lowest possible cost, while still satisfying a set of constraints.
+            </p>
+        </div>
+        <div>
+            <h2>Basic Terms</h2>
+        </div>
+        <div>
+            <h3>Bus</h3>
+        </div>
+        <div>
+            <p>
+                A bus is a node in a power system where different components, such generators, 
+                <br> load (demand), and transmission lines interconnect.
+            </p>
+        </div>
+        <div>
+            <h3>Generator</h3>
+        </div>
+        <div>
+            <p>
+                Generators are a type of bus that produce power for the rest of the system.
+                <br> Each bus has a unique cost of generation, as well as limits on how much 
+                <br> it can produce, or change it's production in some amount of time. 
+            </p>
+        </div>
+        <div>
+            <h3>Load</h3>
+        </div>
+        <div>
+            <p>
+                A load bus demands power (think houses, factories, etc). These have a minimum demand 
+                <br> that must be met, otherwise blackouts occur. The amount of power demanded by a 
+                <br> changes over time as power usage increases and decreases. 
+            </p>
+        </div>
+        <div>
+            <h3>Line</h3>
+        </div>
+        <div>
+            <p>
+                Line's transmit power between nodes in the system. Each line has a maximum amount 
+                <br> of power that in can transfer. Lines are not 100% efficient, and will produce
+                <br> some amount of loss when transmitting power over distance. 
+            </p>
+        </div>
+        <div>
+            <img src="imgs/grid.png" alt="grid">
+        </div>
+        <div>
+            <h2>What are the constraints?</h2>
+            <div>
+                <h3>Line Capacity</h3>
+            </div>
+            <div>
+                <p>
+                    Lines can only transmit so much power. Lines also lose power along the 
+                    <br> way, increasing with distance. We need to ensure that each line is 
+                    <br> delivering enough power to it's destination without exceeding it's 
+                    <br> maximum allowable flow. 
+                </p>
+            </div>
+            <div>
+                <h3>Generation</h3>
+            </div>
+            <div>
+                <p>
+                    Each generator in the system has a minimum and maximum amount of energy
+                    <br> that it can generate. The goal is to have these generators operate at
+                    <br> the optimal level, such that cost is minimized.
+                </p>
+            </div>
+            <div>
+                <h3>Demand</h3>
+            </div>
+            <div>
+                <p>
+                    For each generator, there are likely many other nodes (buses) that
+                    <br> demand power. If the minimum demand power for each of these buses
+                    <br> isn't met, it would be the equivalent of a blackout for the area
+                    <br> surrounding that node.
+                </p>
+            </div>
+        </div>
+        <div>
+            <p>
+
+            </p>
+        </div>
+
+    </section>
+
+    </body>

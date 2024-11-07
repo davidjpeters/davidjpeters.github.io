@@ -3,7 +3,8 @@
     src: url(fonts/SourceCodePro-VariableFont_wght.ttf);
 }
 
-html, body {
+html,
+body {
     background: rgb(25, 25, 25);
     font-family: SourceCode;
     color: ivory;
@@ -18,12 +19,36 @@ img {
 }
 
 .siteHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    background: transparent; /* Background to ensure visibility */
-    
+    background: rgba(25, 25, 25, 0.4);
+    padding: 0 20px;
+    z-index: 1000;
+}
+
+.siteHeader .opf {
+    color: rgb(33, 124, 38);
+    margin: 0;
+}
+
+.siteHeader .opf a {
+    color: rgb(33, 124, 38);
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+    padding-left: 20px;
+}
+
+
+.siteHeader nav {
+    flex-grow: 1;
+    text-align: center;
+    padding-right: 10%;
 }
 
 .siteHeader ul {
@@ -31,17 +56,12 @@ img {
     justify-content: center;
     padding: 0;
     gap: 3rem;
-    top: 0;
-    left: 0;
-    right: 0;
-    background: rgb(25, 25, 25); /* Background to ensure visibility */
-    z-index: 1000;
 }
 
 .siteHeader ul li {
     list-style-type: none;
-    display: flex;
 }
+
 
 .siteHeader ul li a {
     color: ivory;
@@ -57,22 +77,102 @@ img {
 }
 
 .aboutSection {
-    padding-top: 6rem;
+    padding-top: 80px;
     display: flex;
-    justify-content: space-evenly;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: auto;
 }
 
-.aboutSection h1 {
+.name,
+.aboutInfo {
+    width: 45%;
+    margin: 10px;
+}
+
+.visualization-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.grid-container {
+    flex: 1;
+    min-width: 300px;
+    max-width: 800px;
+    margin: 0;
+}
+
+.grid-container svg {
+    width: 100%;
+    height: auto;
+}
+
+.bar-chart {
+    flex: 0 1 300px;
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    height: 300px;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-right: 50px;
+    background: rgba(33, 124, 38, 0.1);
+    border-radius: 10px;
+}
+
+.bar {
+    flex: 1;
+    background-color: rgb(84, 221, 91);
+    border-radius: 5px;
+    animation: fluctuate 8s ease-in-out infinite;
+    transform-origin: bottom;
+    transition: height 1s ease;
+    height: var(--height);
+    min-width: 20px;
+}
+  
+  .bar:nth-child(1) { animation-delay: 0.2s; }
+  .bar:nth-child(2) { animation-delay: 0.4s; }
+  .bar:nth-child(3) { animation-delay: 0.6s; }
+  .bar:nth-child(4) { animation-delay: 0.8s; }
+  .bar:nth-child(5) { animation-delay: 1s; }
+  .bar:nth-child(6) { animation-delay: 1.2s; }
+  .bar:nth-child(7) { animation-delay: 1.4s; }
+  .bar:nth-child(8) { animation-delay: 1.6s; }
+  .bar:nth-child(9) { animation-delay: 1.8s; }
+  
+  @keyframes fluctuate {
+    0%, 100% { height: var(--height); }
+    50% { height: calc(var(--height) - 20%); }
+  }
+
+.grid-container {
+    width: 100%;
+    max-width: 800px;
+    margin-top: -200px;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+
+.aboutSection .name h1 {
     margin: 0;
     color: rgb(21, 161, 21);
     font-size: 3rem;
     font-weight: 500;
     padding-left: 10%;
-    width: 100%
-}
-
-.aboutMeInfo {
-    font-size: 1.2rem;
+    width: 90%;
+    padding-bottom: 1rem;
 }
 
 .cursor {
@@ -80,23 +180,86 @@ img {
     animation: blink 1s step-start infinite;
 }
 
-.work {
+.power-dot {
+    fill: #ffeb3b;
+    filter: blur(3px);
+}
+
+.power-line {
+    stroke: #666;
+    stroke-width: 3;
+}
+
+.power-plant {
+    fill: #4caf50;
+}
+
+.substation {
+    fill: #2196f3;
+}
+
+.house {
+    fill: #9e9e9e;
+}
+
+.building {
+    fill: #757575;
+}
+
+.solar-panel {
+    fill: #81c784;
+}
+
+.wind-turbine {
+    fill: #4db6ac;
+}
+
+
+footer {
+    background-color: rgb(25, 25, 25);
+    color: rgb(84, 221, 91);
+    text-align: center;
+}
+  
+.footer-content h3 {
+    color: rgb(33, 124, 38);
+    font-size: 1.8em;
+    margin-bottom: 10px;
+}
+  
+.footer-content p {
+    max-width: 500px;
+    margin: auto;
+    font-size: 1em;
+    line-height: 1.5em;
+}
+
+.footer-bottom {
+    font-size: 0.9em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+  
+/* ---------------- Basics.html -------------- */
+
+.about {
     width: calc(100% - 5rem);
     border: 1rem solid rgb(33, 124, 38);
     border-left: 4rem solid rgb(33, 124, 38);
-    overflow: hidden; 
-    position: relative; 
+    overflow: hidden;
+    position: relative;
     margin: 0 auto;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
-.opf {
+.aboutWrapper {
     position: relative;
-    height: 200px; 
+    height: 200px;
     transition: transform 0.5s ease;
 }
 
-.powerSystem {
+.aboutImg {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -106,34 +269,422 @@ img {
     margin: 0;
 }
 
-.opf:hover .powerSystem {
+.aboutWrapper:hover .aboutImg {
     filter: grayscale(0%);
 }
 
-.opf:hover {
+.aboutWrapper:hover {
     transform: scale(1.1);
 }
 
+.overlay-text-about {
+    position: absolute;
+    top: 50%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    color: rgb(33, 124, 38);
+    color: rgb(33, 124, 38);
+    font-size: 10rem;
+    font-weight: bold;
+    text-align: center;
+    z-index: 100;
+}
 
-.cursor {
-    background-color: rgb(21, 161, 21);
-    animation: blink 1s step-start infinite;
+.mainGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    justify-items: center;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.mainGrid img {
+    max-width: 1000px;
+}
+  
+.mainGrid div {
+    text-align: center;
+}
+  
+
+.mainGrid h1 {
+    font-size: 3rem;
+    color: rgb(33, 124, 38);
+}
+
+.mainGrid h2 {
+    color: rgb(84, 221, 91);
+    font-weight: 500;
+}
+
+.mainGrid h3 {
+    font-weight: 400;
+    color: rgb(84, 221, 91);
+}
+
+/* ---------------- Work.html -------------- */
+
+.work {
+    width: calc(100% - 5rem);
+    border: 1rem solid rgb(33, 124, 38);
+    border-left: 4rem solid rgb(33, 124, 38);
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+.workWrapper {
+    position: relative;
+    height: 200px;
+    transition: transform 0.5s ease;
+}
+
+.workImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+    display: block;
+    margin: 0;
+}
+
+.workWrapper:hover .workImg {
+    filter: grayscale(0%);
+}
+
+.workWrapper:hover {
+    transform: scale(1.1);
 }
 
 .overlay-text {
     position: absolute;
-    top: 50%; 
-    left: 20%; 
-    transform: translate(-50%, -50%); 
-    color: black; 
+    top: 50%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+    color: rgb(33, 124, 38);
+    color: rgb(33, 124, 38);
     font-size: 10rem;
     font-weight: bold;
-    text-align: center; 
-    z-index: 100; /* Ensure it’s above the image */
+    text-align: center;
+    z-index: 100;
 }
+
+.workGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    justify-items: center;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.workGrid div {
+    text-align: center;
+}
+
+.workGrid h1 {
+    font-size: 3rem;
+    color: rgb(33, 124, 38);
+}
+
+.workGrid h2 {
+    color: rgb(84, 221, 91);
+    font-weight: 500;
+}
+
+#landscape {
+    position: relative;
+    max-width: 600px;
+    height: 200px;
+    background: transparent;
+    overflow: hidden;
+    margin: 20px auto;
+    display: flex;
+    align-items: flex-end;
+    gap: 2px;
+}
+
+.search-container {
+    border: 1px solid green;
+}
+
+.segment {
+    width: 40px;
+    background: #3e8e41;
+    transition: height 0.5s ease;
+}
+
+.position {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: ivory;
+    border-radius: 50%;
+    transform: translate(-50%, -100%);
+    transition: left 0.5s, top 0.5s;
+}
+
+.search-container button {
+    display: block;
+    margin: 10px auto;
+    padding: 8px 16px;
+    background-color: #3e8e41;
+    color: ivory;
+    border: none;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background-color: #2c6c2e;
+}
+
+.bayesian {
+    max-width: 1200px;
+}
+
+/* ---------------- Why.html -------------- */
+
+.why {
+    width: calc(100% - 5rem);
+    border: 1rem solid rgb(33, 124, 38);
+    border-left: 4rem solid rgb(33, 124, 38);
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+.whyWrapper {
+    position: relative;
+    height: 200px;
+    transition: transform 0.5s ease;
+}
+
+.whyImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+    display: block;
+    margin: 0;
+}
+
+.whyWrapper:hover .whyImg {
+    filter: grayscale(0%);
+}
+
+.whyWrapper:hover {
+    transform: scale(1.1);
+}
+
+.overlay-text-why {
+    position: absolute;
+    top: 50%;
+    left: 77%;
+    transform: translate(-50%, -50%);
+    color: rgb(33, 124, 38);
+    color: rgb(33, 124, 38);
+    font-size: 10rem;
+    font-weight: bold;
+    text-align: center;
+    z-index: 100;
+}
+
+.whyGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    justify-items: center;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+  .whyGrid div {
+    text-align: center;
+}
+
+  .whyGrid h1 {
+    font-size: 3rem;
+    color: rgb(33, 124, 38);
+}
+
+.whyGrid h2 {
+    color: rgb(84, 221, 91);
+    font-weight: 500;
+}
+
+.light-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 0%, 
+                            rgba(255, 255, 255, 0.3) 0%, 
+                            rgba(255, 255, 255, 0.1) 40%, 
+                            transparent 70%);
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 2s;
+}
+
+.flicker {
+    animation: flicker 1s ease-in-out forwards;
+}
+
+@keyframes flicker {
+    0% { opacity: 1; }
+    1% { opacity: 0.7;}
+    19% { opacity: 0.2;}
+    20% { opacity: 0.9; }
+    25% { opacity: 0.4; }
+    26% { opacity: 0.1; }
+    30% { opacity: 0.4; }
+    50% { opacity: 0.8; }
+    75% { opacity: 0.3; }
+    99% { opacity: 0.6; }
+    100% { opacity: 0; }
+}
+
 
 @keyframes blink {
     50% {
         opacity: 0;
     }
 }
+
+@media (max-width: 720px) {
+    .siteHeader {
+        flex-direction: column;
+        padding: 10px;
+    }
+  
+    .siteHeader nav {
+        width: 100%;
+        padding-right: 0;
+    }
+  
+    .siteHeader ul {
+        gap: 1.5rem;
+    }
+  
+    .siteHeader .opf a {
+        font-size: 1.5rem;
+        padding-left: 0;
+    }
+  
+    .aboutSection {
+        padding-top: 8rem;
+        flex-direction: column;
+        align-items: center;
+    }
+  
+    .name,
+    .aboutInfo {
+        width: 90%;
+        margin: 10px auto;
+        text-align: center;
+    }
+  
+    .aboutSection .name h1 {
+        font-size: 2rem;
+        padding-left: 0;
+        width: 100%;
+    }
+  
+    .grid-container {
+        width: 95%;
+        margin-top: -100px;
+    }
+  
+    svg {
+        width: 100%;
+        height: auto;
+    }
+  
+    .about,
+    .why,
+    .work {
+        width: calc(100% - 2rem);
+        border-left: 2rem solid rgb(33, 124, 38);
+        margin-top: 10px;
+    }
+  
+    .overlay-text,
+    .overlay-text-about,
+    .overlay-text-why {
+        font-size: 5rem;
+        left: 50%;
+    }
+  
+    .mainGrid,
+    .workGrid,
+    .whyGrid {
+        padding: 10px;
+    }
+  
+    .mainGrid h1,
+    .workGrid h1,
+    .whyGrid h1 {
+            padding-top: 70px;
+            font-size: 2rem;
+    }
+  
+    #landscape {
+        max-width: 95%;
+        height: 150px;
+    }
+  
+    .footer-content h3 {
+        font-size: 1.5em;
+    }
+  
+    .footer-content p {
+        padding: 0 15px;
+    }
+  
+    .aboutWrapper,
+    .workWrapper,
+    .whyWrapper {
+        height: 150px;
+    }
+  
+    .search-container {
+        width: 90%;
+        margin: 0 auto;
+    }
+  
+    .bayesian {
+        width: 95%;
+        height: auto;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .siteHeader ul {
+        gap: 1rem;
+        font-size: 0.9rem;
+    }
+  
+    .overlay-text,
+    .overlay-text-about,
+    .overlay-text-why {
+        font-size: 3rem;
+    }
+  
+    .aboutSection .name h1 {
+        font-size: 1.5rem;
+    }
+  
+    .aboutInfo p {
+        font-size: 0.9rem;
+    }
+  }
+  

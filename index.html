@@ -1,44 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>David Peters</title>
+    <title>Optimal Power Flow</title>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
     <header class="siteHeader">
+        <div class="opf">
+            <a href="index.html">OPF</a>
+        </div>
         <nav>
             <ul>
-                <li><a href="#">ABOUT</a></li>
-                <li><a href="#">WORK</a></li>
-                <li><a href="#">CONTACT</a></li>
+                <li><a href="basics.html">BASICS</a></li>
+                <li><a href="work.html">WORK</a></li>
+                <li><a href="why.html">WHY</a></li>
             </ul>
         </nav>
     </header>
 
     <section class="aboutSection">
         <div class="name">
-            <h1>David_Peters~ > <span class="cursor">_</span></h1>
+            <h1>Optimal Power Flow <span class="cursor">_</span></h1>
         </div>
-        <div class="aboutMeInfo">
+        <div class="aboutInfo">
             <p>
-                I'm currently an undergraduate student and research assistant
-                <br> at the University of Lethbridge. I'm passionate about programming,
-                <br> problem solving and creating. (and dark mode) 
-
+                Optimal Power Flow (OPF) is an optimization problem
+                <br> that aims to minimize the cost of production in 
+                <br> an electrical system while still satisfying a set
+                <br> of constraints that ensure we all get power. 
             </p>
+        </div>
+        <div class="visualization-container">
+            <div class="grid-container">
+            
+            <svg width="800" height="600" viewBox="0 0 800 600">
+                <!-- Power Plant -->
+                
+                <rect x="50" y="250" width="60" height="60" class="power-plant"/>
+                    <rect x="60" y="220" width="15" height="30" class="power-plant"/>
+                    <rect x="85" y="220" width="15" height="30" class="power-plant"/>
+                    
+                    <!-- Main Power Lines -->
+                    <path d="M 110 280 L 300 280" class="power-line" id="line1"/>
+                    <path d="M 300 280 L 500 280" class="power-line" id="line2"/>
+                    <path d="M 300 280 L 300 450" class="power-line" id="line3"/>
+                    <path d="M 500 280 L 500 450" class="power-line" id="line4"/>
+                    
+                    <!-- Substations -->
+                    <rect x="280" y="260" width="40" height="40" class="substation"/>
+                    <rect x="480" y="260" width="40" height="40" class="substation"/>
+                    
+                    <!-- Houses and Buildings -->
+                    <path d="M 280 480 L 310 450 L 340 480 Z" class="house"/>
+                    <rect x="290" y="480" width="40" height="30" class="house"/>
+                    
+                    <rect x="480" y="450" width="50" height="60" class="building"/>
+                    
+                    <!-- Power Flow Animation -->
+                    <g id="powerDots"></g>
+                </svg>
+            </div>
+            <div class="bar-chart">
+                <div class="bar" style="--height: 60%;"></div>
+                <div class="bar" style="--height: 80%;"></div>
+                <div class="bar" style="--height: 50%;"></div>
+                <div class="bar" style="--height: 70%;"></div>
+                <div class="bar" style="--height: 90%;"></div>
+                <div class="bar" style="--height: 75%;"></div>
+                <div class="bar" style="--height: 80%;"></div>
+                <div class="bar" style="--height: 60%;"></div>
+                <div class="bar" style="--height: 55%;"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="aboutWrapper">
+            <a href="basics.html">
+                <img src="imgs/workshopNote.jpg" alt="aboutImg" class="aboutImg">
+                <div class="overlay-text-about">BASICS</div>    
+            </a>
         </div>
     </section>
 
     <section class="work">
-        <div class="opf">
-            <img src="imgs/powerSystem.png" alt="powerSystem" class="powerSystem">
-            <div class="overlay-text">WORK</div>
+        <div class="workWrapper">
+            <a href="work.html">
+                <img src="imgs/codeScreenshot.png" alt="code" class="workImg">
+                <div class="overlay-text">WORK</div>    
+            </a>
         </div>
     </section>
 
+    <section class="why">
+        <div class="whyWrapper">
+            <a href="why.html">
+                <img src="imgs/powerSystem.png" alt="whyImg" class="whyImg">    
+                <div class="overlay-text-why">WHY</div>
+            </a>
+        </div>
     </section>
+
+    <footer>
+        <div class="footer-content">
+          <h3>Optimal Power Flow</h3>
+          <p>A brief introduction on the problem</p>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Optimal Power Flow. All rights reserved.</p>
+        </div>
+      </footer>
+      
+
+    <script src="scripts/powerGrid.js"></script>
 </body>
+
 </html>
