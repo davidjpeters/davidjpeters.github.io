@@ -1,122 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en-CA">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Optimal Power Flow</title>
-    <link rel="stylesheet" href="styles/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grade Tracker</title>
+  <meta name="description" content="Track assignments, grades and GPA. Data stays in your browser.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
-
 <body>
-    <header class="siteHeader">
-        <div class="opf">
-            <a href="index.html">OPF</a>
-        </div>
-        <nav>
-            <ul>
-                <li><a href="basics.html">BASICS</a></li>
-                <li><a href="work.html">WORK</a></li>
-                <li><a href="why.html">WHY</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header class="topbar">
+    <div class="topbar-row">
+      <a class="brand" href="#/classes">Grade Tracker</a>
+      <label class="semester-picker">
+        <span class="visually-hidden">Semester</span>
+        <select id="semester-select"></select>
+      </label>
+      <a id="backup-nag" class="backup-nag" href="#/settings" hidden>Back up your data</a>
+    </div>
+    <nav class="tabs" aria-label="Views">
+      <a href="#/classes" data-route="classes">My classes</a>
+      <a href="#/assignments" data-route="assignments">Assignments</a>
+      <a href="#/calendar" data-route="calendar">Calendar</a>
+      <a href="#/grades" data-route="grades">Grades</a>
+      <a href="#/semester" data-route="semester">Semester</a>
+      <a href="#/settings" data-route="settings">Settings</a>
+    </nav>
+  </header>
 
-    <section class="aboutSection">
-        <div class="name">
-            <h1>Optimal Power Flow <span class="cursor">_</span></h1>
-        </div>
-        <div class="aboutInfo">
-            <p>
-                Optimal Power Flow (OPF) is an optimization problem
-                <br> that aims to minimize the cost of production in 
-                <br> an electrical system while still satisfying a set
-                <br> of constraints that ensure we all get power. 
-            </p>
-        </div>
-        <div class="visualization-container">
-            <div class="grid-container">
-            
-            <svg width="800" height="600" viewBox="0 0 800 600">
-                <!-- Power Plant -->
-                
-                <rect x="50" y="250" width="60" height="60" class="power-plant"/>
-                    <rect x="60" y="220" width="15" height="30" class="power-plant"/>
-                    <rect x="85" y="220" width="15" height="30" class="power-plant"/>
-                    
-                    <!-- Main Power Lines -->
-                    <path d="M 110 280 L 300 280" class="power-line" id="line1"/>
-                    <path d="M 300 280 L 500 280" class="power-line" id="line2"/>
-                    <path d="M 300 280 L 300 450" class="power-line" id="line3"/>
-                    <path d="M 500 280 L 500 450" class="power-line" id="line4"/>
-                    
-                    <!-- Substations -->
-                    <rect x="280" y="260" width="40" height="40" class="substation"/>
-                    <rect x="480" y="260" width="40" height="40" class="substation"/>
-                    
-                    <!-- Houses and Buildings -->
-                    <path d="M 280 480 L 310 450 L 340 480 Z" class="house"/>
-                    <rect x="290" y="480" width="40" height="30" class="house"/>
-                    
-                    <rect x="480" y="450" width="50" height="60" class="building"/>
-                    
-                    <!-- Power Flow Animation -->
-                    <g id="powerDots"></g>
-                </svg>
-            </div>
-            <div class="bar-chart">
-                <div class="bar" style="--height: 60%;"></div>
-                <div class="bar" style="--height: 80%;"></div>
-                <div class="bar" style="--height: 50%;"></div>
-                <div class="bar" style="--height: 70%;"></div>
-                <div class="bar" style="--height: 90%;"></div>
-                <div class="bar" style="--height: 75%;"></div>
-                <div class="bar" style="--height: 80%;"></div>
-                <div class="bar" style="--height: 60%;"></div>
-                <div class="bar" style="--height: 55%;"></div>
-            </div>
-        </div>
-    </section>
+  <main id="view" tabindex="-1"></main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
-    <section class="about">
-        <div class="aboutWrapper">
-            <a href="basics.html">
-                <img src="imgs/workshopNote.jpg" alt="aboutImg" class="aboutImg">
-                <div class="overlay-text-about">BASICS</div>    
-            </a>
-        </div>
-    </section>
-
-    <section class="work">
-        <div class="workWrapper">
-            <a href="work.html">
-                <img src="imgs/codeScreenshot.png" alt="code" class="workImg">
-                <div class="overlay-text">WORK</div>    
-            </a>
-        </div>
-    </section>
-
-    <section class="why">
-        <div class="whyWrapper">
-            <a href="why.html">
-                <img src="imgs/powerSystem.png" alt="whyImg" class="whyImg">    
-                <div class="overlay-text-why">WHY</div>
-            </a>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-content">
-          <h3>Optimal Power Flow</h3>
-          <p>A brief introduction on the problem</p>
-        </div>
-        <div class="footer-bottom">
-          <p>&copy; 2024 Optimal Power Flow. All rights reserved.</p>
-        </div>
-      </footer>
-      
-
-    <script src="scripts/powerGrid.js"></script>
+  <!-- Plain scripts (not modules) so the page also works when opened from disk. Order matters. -->
+  <script src="js/calc.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/views/classes.js"></script>
+  <script src="js/views/assignments.js"></script>
+  <script src="js/views/calendar.js"></script>
+  <script src="js/views/grades.js"></script>
+  <script src="js/views/semester.js"></script>
+  <script src="js/views/settings.js"></script>
+  <script src="js/app.js"></script>
 </body>
-
 </html>
